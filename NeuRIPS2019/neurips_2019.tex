@@ -72,17 +72,40 @@
 \maketitle
 
 \begin{abstract}
-    We wanted to work on a news recommender system since we were interested in addressing both the dimensionality (associated with large text content) and recommendation problems that were covered in class. For choosing an algorithm for our news recommendation system, we analyzed the problem and found that there were some basic challenges that we could face while using the traditional CF or CBF approaches that were discussed in class. They included the cold start problem (in terms of both new users and new news articles). There was also the issue of very sparse data since the vast universe of articles and users on twitter is tremendous. Thus we decided that we needed to use a hybrid approach.
+    The goal of this project is to build a News Recommender System. We chose to work on a News Recommender system since we were interested in addressing both the dimensionality (associated with large text content) and recommendation problems that were covered in class. Among the different domains of recommender systems, news recommendation has been explored relatively less due to the lack of structured data and features. Text mining for news articles using NLP techniques in itself is a different class of problem. In this project we aim to build a pipeline for extracting user and news article features, and eventually build a hybrid recommender system to address the problems of cold start, data sparcity and scalability. 
 \end{abstract}
 
 \section{Reaction Paper}
 
-\subsection{Ankita Paper}
-Scalable news recommendation using multi-dimensional similarity and Jaccard–Kmeans clustering
+\subsection{Hybrid Recommender Systems: A Systematic Literature Review}
+\href{https://arxiv.org/pdf/1901.03888.pdf}{Link to paper}
 
-<\url{}{https://www-sciencedirect-com.offcampus.lib.washington.edu/science/article/pii/S0164121214001162}>
 \subsubsection{Summary}
-Main technical content of the paper reloves around making a scalable news recommendation using multi-dimensional similarity and Jaccard–Kmeans clustering. The paper is related to the topics presented in the course. The Jaccard similarity and K-means clustering were part of our course syllabus. The paper tries and combines the two and helps build a more scalable news recommender. 
+For choosing an algorithm for our news recommendation system, we analyzed the problem and found that there were some basic challenges that we could face while using the traditional CF or CBF approaches that were discussed in class. They included the cold start problem (in terms of both new users and new news articles). There was also the issue of very sparse data since the vast universe of articles and users on twitter is tremendous. Thus we decided that we needed to use a hybrid approach.
+This is how we came across this detailed Literature Review on different Hybrid Recommender Systems. This literature review was done based on surveying around 76 papers from various digital journal sources. Since the paper is relatively recent (2017), we believe that the trends and findings are quite up to date. This literature review was extremely helpful since it analyzed core questions like:
+
+\begin{enumerate}
+    \item What type of research problems (e.g. cold start, data sparsity, accuracy, scalability, etc.) were addressed by different papers and algorithms,
+    \item Which are the most common Data mining and ML techniques used to build hybrid recommender systems,
+    \item What are the most common combinations in Hybrid RecSys,
+    \item What are the techniques to combine the algorithms in a hybrid system,
+    \item What are the evaluation techniques generally used for hybrid recommender systems
+\end{enumerate}
+
+\subsubsection{Critique}
+Each of these questions was answered for us with references to other research papers that showed different problem characteristics. By comparing our proposed problem against other problems, we were able to gather a lot of insight into the approach we would like to take for our hybrid algorithm.  Some of the drawbacks of this paper were in the lack of technical details and mathematical formulations regarding the different approaches and algorithms. Another shortcoming is that although the paper uncovers trends, it does not delve into the causes or the explanations behind why these trends were discovered or why a particular research problem is usually targeted in a particular way.
+Overall the paper was quite easy to read through and gives a lot of direction into Hybrid Recommendation Systems. By brainstorming on the above questions we began to build a pipeline for our recommender system.
+
+\subsubsection{Brainstorming}
+We found that one of the most common approaches for the cold start and sparsity issues is the CF-CBF approach. The problem can then be further broken down into the subtasks of creating user profiles, news article profiles, an interaction matrix and eventually a recommender system that can put it all together.
+Based on the survey, KNN and Clustering are the most general techniques used to create profiles. Clustering techniques for profile creation handles the problem of cold start and scalability (dimensionality reduction) quite well. Thus we decided to explore more into the use of a clustering algorithm for user profile creation.
+Since the articles are text based data, we require some text mining strategies to profile the data. We explored different techniques and found that TF-IDF, SVD and LDA were the most common techniques for creating feature representations of the data. 
+
+\subsection{Scalable news recommendation using multi-dimensional similarity and Jaccard–Kmeans clustering}
+\href{https://www-sciencedirect-com.offcampus.lib.washington.edu/science/article/pii/S0164121214001162}{Link to paper}
+
+\subsubsection{Summary}
+Main technical content of the paper revolves around making a scalable news recommendation using multi-dimensional similarity and Jaccard–Kmeans clustering. The paper is related to the topics presented in the course. The Jaccard similarity and K-means clustering were part of our course syllabus. The paper tries and combines the two and helps build a more scalable news recommender. 
 
 \subsubsection{Critique}
 The paper takes into consideration all the aspects of the news recommendation – the user behavior, the type of content, and the time of accessing the news. It also explains the impact of each factor on accuracy of the recommender. 
@@ -95,8 +118,7 @@ The proofs in the paper seem technically sound. The author has well explained th
 A promising further research would be to take into consideration the amount of time the user and neighbor spent on the news previously if accessed. This may help us remove mistaken access to the news. This would refine the clustering data.The paper dismisses the effects of the demographics of the users. Adding to the assumption list that there would be an effect of demographics would be an interesting study.This addition would require additional data for the demographics of the users. Also, the similarity in terms of demographics would be needed to be calculated to incorporate into the model
 
 \subsection{Latent Dirichlet Allocation}
-
-\url{http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf2}
+\href{http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf2}{Link to Paper}
 
 \subsubsection{Summary}
 The given paper discusses a probabilistic text modelling technique called \textbf{Latent Dirichlet Allocation} which addresses the problem of modelling text corpora and other discrete data collections. 
@@ -130,263 +152,18 @@ The conclusion was that LDA was able to reduce the feature vector space by 99.6\
 We see a great potential in using LDA for creating feature vector space on news articles. The only hurdle we might face would be estimating the news categories. But we can use some other unsupervised technique to find optimal news clusters or categories.
 
 
-\subsection{Chavi Paper}
-\subsubsection{Summary}
-\subsubsection{Critique}
-
-
 \section{Project proposal}
 \label{gen_inst}
 
-The text must be confined within a rectangle 5.5~inches (33~picas) wide and
-9~inches (54~picas) long. The left margin is 1.5~inch (9~picas).  Use 10~point
-type with a vertical spacing (leading) of 11~points.  Times New Roman is the
-preferred typeface throughout, and will be selected for you by default.
-Paragraphs are separated by \nicefrac{1}{2}~line space (5.5 points), with no
-indentation.
-
-The paper title should be 17~point, initial caps/lower case, bold, centered
-between two horizontal rules. The top rule should be 4~points thick and the
-bottom rule should be 1~point thick. Allow \nicefrac{1}{4}~inch space above and
-below the title to rules. All pages should start at 1~inch (6~picas) from the
-top of the page.
-
-For the final version, authors' names are set in boldface, and each name is
-centered above the corresponding address. The lead author's name is to be listed
-first (left-most), and the co-authors' names (if different address) are set to
-follow. If there is only one co-author, list both author and co-author side by
-side.
-
-Please pay special attention to the instructions in Section \ref{others}
-regarding figures, tables, acknowledgments, and references.
-
-\section{Headings: first level}
-\label{headings}
-
-All headings should be lower case (except for first word and proper nouns),
-flush left, and bold.
-
-First-level headings should be in 12-point type.
-
-\subsection{Headings: second level}
-
-Second-level headings should be in 10-point type.
-
-\subsubsection{Headings: third level}
-
-Third-level headings should be in 10-point type.
-
-\paragraph{Paragraphs}
-
-There is also a \verb+\paragraph+ command available, which sets the heading in
-bold, flush left, and inline with the text, with the heading followed by 1\,em
-of space.
-
-\section{Citations, figures, tables, references}
-\label{others}
-
-These instructions apply to everyone.
-
-\subsection{Citations within the text}
-
-The \verb+natbib+ package will be loaded for you by default.  Citations may be
-author/year or numeric, as long as you maintain internal consistency.  As to the
-format of the references themselves, any style is acceptable as long as it is
-used consistently.
-
-The documentation for \verb+natbib+ may be found at
-\begin{center}
-  \url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf}
-\end{center}
-Of note is the command \verb+\citet+, which produces citations appropriate for
-use in inline text.  For example,
-\begin{verbatim}
-   \citet{hasselmo} investigated\dots
-\end{verbatim}
-produces
-\begin{quote}
-  Hasselmo, et al.\ (1995) investigated\dots
-\end{quote}
-
-If you wish to load the \verb+natbib+ package with options, you may add the
-following before loading the \verb+neurips_2019+ package:
-\begin{verbatim}
-   \PassOptionsToPackage{options}{natbib}
-\end{verbatim}
-
-If \verb+natbib+ clashes with another package you load, you can add the optional
-argument \verb+nonatbib+ when loading the style file:
-\begin{verbatim}
-   \usepackage[nonatbib]{neurips_2019}
-\end{verbatim}
-
-As submission is double blind, refer to your own published work in the third
-person. That is, use ``In the previous work of Jones et al.\ [4],'' not ``In our
-previous work [4].'' If you cite your other papers that are not widely available
-(e.g., a journal paper under review), use anonymous author names in the
-citation, e.g., an author of the form ``A.\ Anonymous.''
-
-\subsection{Footnotes}
-
-Footnotes should be used sparingly.  If you do require a footnote, indicate
-footnotes with a number\footnote{Sample of the first footnote.} in the
-text. Place the footnotes at the bottom of the page on which they appear.
-Precede the footnote with a horizontal rule of 2~inches (12~picas).
-
-Note that footnotes are properly typeset \emph{after} punctuation
-marks.\footnote{As in this example.}
-
-\subsection{Figures}
-
-\begin{figure}
-  \centering
-  \fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
-  \caption{Sample figure caption.}
-\end{figure}
-
-All artwork must be neat, clean, and legible. Lines should be dark enough for
-purposes of reproduction. The figure number and caption always appear after the
-figure. Place one line space before the figure caption and one line space after
-the figure. The figure caption should be lower case (except for first word and
-proper nouns); figures are numbered consecutively.
-
-You may use color figures.  However, it is best for the figure captions and the
-paper body to be legible if the paper is printed in either black/white or in
-color.
-
-\subsection{Tables}
-
-All tables must be centered, neat, clean and legible.  The table number and
-title always appear before the table.  See Table~\ref{sample-table}.
-
-Place one line space before the table title, one line space after the
-table title, and one line space after the table. The table title must
-be lower case (except for first word and proper nouns); tables are
-numbered consecutively.
-
-Note that publication-quality tables \emph{do not contain vertical rules.} We
-strongly suggest the use of the \verb+booktabs+ package, which allows for
-typesetting high-quality, professional tables:
-\begin{center}
-  \url{https://www.ctan.org/pkg/booktabs}
-\end{center}
-This package was used to typeset Table~\ref{sample-table}.
-
-\begin{table}
-  \caption{Sample table title}
-  \label{sample-table}
-  \centering
-  \begin{tabular}{lll}
-    \toprule
-    \multicolumn{2}{c}{Part}                   \\
-    \cmidrule(r){1-2}
-    Name     & Description     & Size ($\mu$m) \\
-    \midrule
-    Dendrite & Input terminal  & $\sim$100     \\
-    Axon     & Output terminal & $\sim$10      \\
-    Soma     & Cell body       & up to $10^6$  \\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\section{Final instructions}
-
-Do not change any aspects of the formatting parameters in the style files.  In
-particular, do not modify the width or length of the rectangle the text should
-fit into, and do not change font sizes (except perhaps in the
-\textbf{References} section; see below). Please note that pages should be
-numbered.
-
-\section{Preparing PDF files}
-
-Please prepare submission files with paper size ``US Letter,'' and not, for
-example, ``A4.''
-
-Fonts were the main cause of problems in the past years. Your PDF file must only
-contain Type 1 or Embedded TrueType fonts. Here are a few instructions to
-achieve this.
-
-\begin{itemize}
-
-\item You should directly generate PDF files using \verb+pdflatex+.
-
-\item You can check which fonts a PDF files uses.  In Acrobat Reader, select the
-  menu Files$>$Document Properties$>$Fonts and select Show All Fonts. You can
-  also use the program \verb+pdffonts+ which comes with \verb+xpdf+ and is
-  available out-of-the-box on most Linux machines.
-
-\item The IEEE has recommendations for generating PDF files whose fonts are also
-  acceptable for NeurIPS. Please see
-  \url{http://www.emfield.org/icuwb2010/downloads/IEEE-PDF-SpecV32.pdf}
-
-\item \verb+xfig+ "patterned" shapes are implemented with bitmap fonts.  Use
-  "solid" shapes instead.
-
-\item The \verb+\bbold+ package almost always uses bitmap fonts.  You should use
-  the equivalent AMS Fonts:
-\begin{verbatim}
-   \usepackage{amsfonts}
-\end{verbatim}
-followed by, e.g., \verb+\mathbb{R}+, \verb+\mathbb{N}+, or \verb+\mathbb{C}+
-for $\mathbb{R}$, $\mathbb{N}$ or $\mathbb{C}$.  You can also use the following
-workaround for reals, natural and complex:
-\begin{verbatim}
-   \newcommand{\RR}{I\!\!R} %real numbers
-   \newcommand{\Nat}{I\!\!N} %natural numbers
-   \newcommand{\CC}{I\!\!\!\!C} %complex numbers
-\end{verbatim}
-Note that \verb+amsfonts+ is automatically loaded by the \verb+amssymb+ package.
-
-\end{itemize}
-
-If your file contains type 3 fonts or non embedded TrueType fonts, we will ask
-you to fix it.
-
-\subsection{Margins in \LaTeX{}}
-
-Most of the margin problems come from figures positioned by hand using
-\verb+\special+ or other commands. We suggest using the command
-\verb+\includegraphics+ from the \verb+graphicx+ package. Always specify the
-figure width as a multiple of the line width as in the example below:
-\begin{verbatim}
-   \usepackage[pdftex]{graphicx} ...
-   \includegraphics[width=0.8\linewidth]{myfile.pdf}
-\end{verbatim}
-See Section 4.4 in the graphics bundle documentation
-(\url{http://mirrors.ctan.org/macros/latex/required/graphics/grfguide.pdf})
-
-A number of width problems arise when \LaTeX{} cannot properly hyphenate a
-line. Please give LaTeX hyphenation hints using the \verb+\-+ command when
-necessary.
-
-\subsubsection*{Acknowledgments}
-
-Use unnumbered third level headings for the acknowledgments. All acknowledgments
-go at the end of the paper. Do not include acknowledgments in the anonymized
-submission, only in the final paper.
-
 \section*{References}
 
-References follow the acknowledgments. Use unnumbered first-level heading for
-the references. Any choice of citation style is acceptable as long as you are
-consistent. It is permissible to reduce the font size to \verb+small+ (9 point)
-when listing the references. {\bf Remember that you can use more than eight
-  pages as long as the additional pages contain \emph{only} cited references.}
-\medskip
+[1] Çano, E.,\ \& Morisio, M.\ (2017). Hybrid recommender systems: A systematic literature review. {\it Intelligent Data Analysis}, 21(6), 1487-1524.
 
-\small
-
-[1] Alexander, J.A.\ \& Mozer, M.C.\ (1995) Template-based algorithms for
-connectionist rule extraction. In G.\ Tesauro, D.S.\ Touretzky and T.K.\ Leen
-(eds.), {\it Advances in Neural Information Processing Systems 7},
-pp.\ 609--616. Cambridge, MA: MIT Press.
-
-[2] Bower, J.M.\ \& Beeman, D.\ (1995) {\it The Book of GENESIS: Exploring
+[2] Kula, M. (2015). Metadata embeddings for user and item cold-start recommendations. {\it arXiv preprint arXiv:1507.08439}.
+Bower, J.M.\ \& Beeman, D.\ (1995) {\it The Book of GENESIS: Exploring
   Realistic Neural Models with the GEneral NEural SImulation System.}  New York:
 TELOS/Springer--Verlag.
 
-[3] Hasselmo, M.E., Schnell, E.\ \& Barkai, E.\ (1995) Dynamics of learning and
-recall at excitatory recurrent synapses and cholinergic modulation in rat
-hippocampal region CA3. {\it Journal of Neuroscience} {\bf 15}(7):5249-5262.
+[3] Shu, K., Mahudeswaran, D., Wang, S., Lee, D.,\ \& Liu, H. (2018). FakeNewsNet: A Data Repository with News Content, Social Context and Spatialtemporal Information for Studying Fake News on Social Media. {\it arXiv preprint arXiv:1809.01286}.
 
 \end{document}
