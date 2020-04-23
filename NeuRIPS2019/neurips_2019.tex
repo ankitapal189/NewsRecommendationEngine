@@ -26,7 +26,7 @@
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
 \usepackage{authblk}
-
+\usepackage{graphicx}
 \title{News Recommendation Engine}
 
 \author[1]{Ankita Pal\thanks{A.apal1994@uw.edu}}
@@ -130,7 +130,8 @@ Finally to reiterate on the problem statement, the goal is to build a recommenda
 \subsection{Proposed Data Source}
 For a hybrid recommendation system, we require data for both user and news article profiling. We decided to use the web scraping tool by the authors of the FakeNewsNet paper \cite{datasrc} that collects data for various twitter users and pulls text content from different news article urls. While the data is split as fake news and real news, our objective is not to classify the news articles as fake or real. However, we do intend to utilize the rich collection of data that is gathered by the tool. The tool also has an advantage of choosing a domain for the news articles and the features that we want to download. 
 
-\section*{References}
+\subsection{Proposed Approach}
+\includegraphics[scale=.50]{NeuRIPS2019/Slide1.PNG}
 
 \begin{thebibliography}{9}
 
