@@ -25,50 +25,18 @@
 \usepackage{amsfonts}       % blackboard math symbols
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
+\usepackage{authblk}
 
 \title{News Recommendation Engine}
 
-% The \author macro works with any number of authors. There are two commands
-% used to separate the names and addresses of multiple authors: \And and \AND.
-%
-% Using \And between authors leaves it to LaTeX to determine where to break the
-% lines. Using \AND forces a line break at that point. So, if LaTeX puts 3 of 4
-% authors names on the first line, and the last on the second line, try using
-% \AND instead of \And before the third author name.
+\author[1]{Ankita Pal\thanks{A.apal1994@uw.edu}}
+\author[1]{Chavi Gupta\thanks{B.chavig@uw.edu}}
+\author[1]{Medha Sagar\thanks{C.sagarme@uw.edu}}
+\affil[1]{Department of Data Science, University of Washington}
 
-\author{%
-  Ankita Pal\thanks{Use footnote for providing further information
-    about author (webpage, alternative address)---\emph{not} for acknowledging
-    funding agencies.} \\
-  Department of Computer Science\\
-  Cranberry-Lemon University\\
-  Pittsburgh, PA 15213 \\
-  \texttt{hippo@cs.cranberry-lemon.edu} \\
-  % examples of more authors
-  \And
-  Chavi Gupta\\
-  % Affiliation \\
-  % Address \\
-  % \texttt{email} \\
-  % \AND
-  % Coauthor \\
-  % Affiliation \\
-  % Address \\
-  % \texttt{email} \\
-  % \And
-  % Coauthor \\
-  % Affiliation \\
-  % Address \\
-  % \texttt{email} \\
-  % \And
-  % Coauthor \\
-  % Affiliation \\
-  % Address \\
-  % \texttt{email} \\
-}
+\renewcommand\Authands{ and }
 
 \begin{document}
-
 \maketitle
 
 \begin{abstract}
@@ -81,8 +49,8 @@
 \href{https://arxiv.org/pdf/1901.03888.pdf}{Link to paper}
 
 \subsubsection{Summary}
-For choosing an algorithm for our news recommendation system, we analyzed the problem and found that there were some basic challenges that we could face while using the traditional CF or CBF approaches that were discussed in class. They included the cold start problem (in terms of both new users and new news articles). There was also the issue of very sparse data since the vast universe of articles and users on twitter is tremendous. Thus we decided that we needed to use a hybrid approach.
-This is how we came across this detailed Literature Review on different Hybrid Recommender Systems. This literature review was done based on surveying around 76 papers from various digital journal sources. Since the paper is relatively recent (2017), we believe that the trends and findings are quite up to date. This literature review was extremely helpful since it analyzed core questions like:
+For choosing an algorithm for our news recommendation system, we analyzed the problem and found that there were some basic challenges that we could face while using the traditional Collaborative Filtering or Content-based Filtering techniques that were discussed in class. They included the cold start problem (in terms of both new users and new news articles). There was also the issue of very sparse data since the vast universe of articles and users on twitter is tremendous. Thus we decided that we needed to use a hybrid approach.
+This is how we came across this detailed Literature Review on different Hybrid Recommender Systems \cite{litReview}. This literature review was done based on surveying around 76 papers from various digital journal sources. Since the paper is relatively recent (2017), we believe that the trends and findings are quite up to date. This literature review was extremely helpful since it analyzed core questions like:
 
 \begin{enumerate}
     \item What type of research problems (e.g. cold start, data sparsity, accuracy, scalability, etc.) were addressed by different papers and algorithms,
@@ -100,6 +68,7 @@ Overall the paper was quite easy to read through and gives a lot of direction in
 We found that one of the most common approaches for the cold start and sparsity issues is the CF-CBF approach. The problem can then be further broken down into the subtasks of creating user profiles, news article profiles, an interaction matrix and eventually a recommender system that can put it all together.
 Based on the survey, KNN and Clustering are the most general techniques used to create profiles. Clustering techniques for profile creation handles the problem of cold start and scalability (dimensionality reduction) quite well. Thus we decided to explore more into the use of a clustering algorithm for user profile creation.
 Since the articles are text based data, we require some text mining strategies to profile the data. We explored different techniques and found that TF-IDF, SVD and LDA were the most common techniques for creating feature representations of the data. 
+
 
 \subsection{Scalable news recommendation using multi-dimensional similarity and Jaccard–Kmeans clustering}
 \href{https://www-sciencedirect-com.offcampus.lib.washington.edu/science/article/pii/S0164121214001162}{Link to paper}
@@ -151,19 +120,28 @@ The conclusion was that LDA was able to reduce the feature vector space by 99.6\
 
 We see a great potential in using LDA for creating feature vector space on news articles. The only hurdle we might face would be estimating the news categories. But we can use some other unsupervised technique to find optimal news clusters or categories.
 
+After exploring the profiling techniques, we will use a hybrid approach to generate recommendations based on both content based and collaborative-filtering approaches. For this we found multiple papers that suggested complex approaches to combine the algorithms. We also found a popular algorithm called LightFM \cite{lightfm} that has been implemented as a Python library. However since we were interested in implementing our own technique, we would like to come up with a simpler way to do this. One possible way we propose is by using the similarities between the user groups and the news articles to recommend news articles to users that are within a user group. This approach will be developed upon as we proceed further in the project.
 
 \section{Project proposal}
 \label{gen_inst}
 
+Finally to reiterate on the problem statement, the goal is to build a recommendation engine that can recommend news articles to users based on their past history and interests as well as based on what other users like them have viewed. This is very useful for blogging and news platforms that would like to attract users to continue viewing more articles within the platform. By recommending relevant articles that a user would view, these platforms can maintain user engagement and prevent users from exiting out and viewing other platforms. It also reduces the number of search queries that a user may have to do to find more articles. All in all, it’s a win-win for both the users and the news platforms. Eventually, the objective is to be able to recommend articles that a user is most likely to view next.
+
+\subsection{Proposed Data Source}
+For a hybrid recommendation system, we require data for both user and news article profiling. We decided to use the web scraping tool by the authors of the FakeNewsNet paper \cite{datasrc} that collects data for various twitter users and pulls text content from different news article urls. While the data is split as fake news and real news, our objective is not to classify the news articles as fake or real. However, we do intend to utilize the rich collection of data that is gathered by the tool. The tool also has an advantage of choosing a domain for the news articles and the features that we want to download. 
+
 \section*{References}
 
-[1] Çano, E.,\ \& Morisio, M.\ (2017). Hybrid recommender systems: A systematic literature review. {\it Intelligent Data Analysis}, 21(6), 1487-1524.
+\begin{thebibliography}{9}
 
-[2] Kula, M. (2015). Metadata embeddings for user and item cold-start recommendations. {\it arXiv preprint arXiv:1507.08439}.
+\bibitem{litReview} Çano, E.,\& Morisio, M.\ (2017). Hybrid recommender systems: A systematic literature review. {\it Intelligent Data Analysis}, 21(6), 1487-1524.
+
+\bibitem{lightfm} Kula, M. (2015). Metadata embeddings for user and item cold-start recommendations. {\it arXiv preprint arXiv:1507.08439}.
 Bower, J.M.\ \& Beeman, D.\ (1995) {\it The Book of GENESIS: Exploring
   Realistic Neural Models with the GEneral NEural SImulation System.}  New York:
 TELOS/Springer--Verlag.
 
-[3] Shu, K., Mahudeswaran, D., Wang, S., Lee, D.,\ \& Liu, H. (2018). FakeNewsNet: A Data Repository with News Content, Social Context and Spatialtemporal Information for Studying Fake News on Social Media. {\it arXiv preprint arXiv:1809.01286}.
+\bibitem{datasrc} Shu, K., Mahudeswaran, D., Wang, S., Lee, D.,\ \& Liu, H. (2018). FakeNewsNet: A Data Repository with News Content, Social Context and Spatialtemporal Information for Studying Fake News on Social Media. {\it arXiv preprint arXiv:1809.01286}.
 
+\end{thebibliography}
 \end{document}
