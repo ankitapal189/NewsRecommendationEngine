@@ -26,7 +26,7 @@
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
 
-\title{Formatting Instructions For NeurIPS 2019}
+\title{News Recommendation Engine}
 
 % The \author macro works with any number of authors. There are two commands
 % used to separate the names and addresses of multiple authors: \And and \AND.
@@ -37,7 +37,7 @@
 % \AND instead of \And before the third author name.
 
 \author{%
-  David S.~Hippocampus\thanks{Use footnote for providing further information
+  Ankita Pal\thanks{Use footnote for providing further information
     about author (webpage, alternative address)---\emph{not} for acknowledging
     funding agencies.} \\
   Department of Computer Science\\
@@ -45,8 +45,8 @@
   Pittsburgh, PA 15213 \\
   \texttt{hippo@cs.cranberry-lemon.edu} \\
   % examples of more authors
-  % \And
-  % Coauthor \\
+  \And
+  Chavi Gupta\\
   % Affiliation \\
   % Address \\
   % \texttt{email} \\
@@ -79,72 +79,36 @@
   must be limited to one paragraph.
 \end{abstract}
 
-\section{Submission of papers to NeurIPS 2019}
+\section{Reaction Paper}
 
-NeurIPS requires electronic submissions.  The electronic submission site is
-\begin{center}
-  \url{https://cmt.research.microsoft.com/NeurIPS2019/}
-\end{center}
+\subsection{Ankita Paper}
+Scalable news recommendation using multi-dimensional similarity and Jaccard–Kmeans clustering
 
-Please read the instructions below carefully and follow them faithfully.
+\hyperlink{https://www-sciencedirect-com.offcampus.lib.washington.edu/science/article/pii/S0164121214001162}{<link>}
+\subsubsection{Summary}
+Main technical content of the paper reloves around making a scalable news recommendation using multi-dimensional similarity and Jaccard–Kmeans clustering. The paper is related to the topics presented in the course. The Jaccard similarity and K-means clustering were part of our course syllabus. The paper tries and combines the two and helps build a more scalable news recommender. 
 
-\subsection{Style}
+\subsubsection{Critique}
+The paper takes into consideration all the aspects of the news recommendation – the user behavior, the type of content, and the time of accessing the news. It also explains the impact of each factor on accuracy of the recommender. 
 
-Papers to be submitted to NeurIPS 2019 must be prepared according to the
-instructions presented here. Papers may only be up to eight pages long,
-including figures. Additional pages \emph{containing only acknowledgments and/or
-  cited references} are allowed. Papers that exceed eight pages of content
-(ignoring references) will not be reviewed, or in any other way considered for
-presentation at the conference.
+The paper does not given in-depth understanding of the maths behind the basic algorithms. The author expects the user to know the maths behind the LSH and K-means clustering. This may be confusing for a person new to this area. A proper description of the dataset. Some key statistics of the datset were give, but details of the columns and their description was not provided along with the paper.Also, For the Top N recommendations the paper assumes for a user, if a neighbour accesses a piece of news at a time closer to the present time, the more will be the probability that the user will access the news. Thus, the time of access will greatly influence the recommendation to a user. This may not always be true. For example, if the neighbor has to mistakenly access an article. It may have been used very recently, but it is not relevant to the user or the neighbor .
 
-The margins in 2019 are the same as since 2007, which allow for $\sim$$15\%$
-more words in the paper compared to earlier years.
+The proofs in the paper seem technically sound. The author has well explained the logic for each step he has taken and the calculation or formula he has used.The theorems are easy to understand. They convey the meaning that the authors have claimed.
 
-Authors are required to use the NeurIPS \LaTeX{} style files obtainable at the
-NeurIPS website as indicated below. Please make sure you use the current files
-and not previous versions. Tweaking the style files may be grounds for
-rejection.
+\subsubsection{Brainstorming}
+A promising further research would be to take into consideration the amount of time the user and neighbor spent on the news previously if accessed. This may help us remove mistaken access to the news. This would refine the clustering data.The paper dismisses the effects of the demographics of the users. Adding to the assumption list that there would be an effect of demographics would be an interesting study.This addition would require additional data for the demographics of the users. Also, the similarity in terms of demographics would be needed to be calculated to incorporate into the model
 
-\subsection{Retrieval of style files}
+\subsection{Medha paper}
+\subsubsection{Summary}
+\subsubsection{Critique}
 
-The style files for NeurIPS and other conference information are available on
-the World Wide Web at
-\begin{center}
-  \url{http://www.neurips.cc/}
-\end{center}
-The file \verb+neurips_2019.pdf+ contains these instructions and illustrates the
-various formatting requirements your NeurIPS paper must satisfy.
 
-The only supported style file for NeurIPS 2019 is \verb+neurips_2019.sty+,
-rewritten for \LaTeXe{}.  \textbf{Previous style files for \LaTeX{} 2.09,
-  Microsoft Word, and RTF are no longer supported!}
+\subsection{Chavi Paper}
+\subsubsection{Summary}
+\subsubsection{Critique}
 
-The \LaTeX{} style file contains three optional arguments: \verb+final+, which
-creates a camera-ready copy, \verb+preprint+, which creates a preprint for
-submission to, e.g., arXiv, and \verb+nonatbib+, which will not load the
-\verb+natbib+ package for you in case of package clash.
 
-\paragraph{Preprint option}
-If you wish to post a preprint of your work online, e.g., on arXiv, using the
-NeurIPS style, please use the \verb+preprint+ option. This will create a
-nonanonymized version of your work with the text ``Preprint. Work in progress.''
-in the footer. This version may be distributed as you see fit. Please \textbf{do
-  not} use the \verb+final+ option, which should \textbf{only} be used for
-papers accepted to NeurIPS.
-
-At submission time, please omit the \verb+final+ and \verb+preprint+
-options. This will anonymize your submission and add line numbers to aid
-review. Please do \emph{not} refer to these line numbers in your paper as they
-will be removed during generation of camera-ready copies.
-
-The file \verb+neurips_2019.tex+ may be used as a ``shell'' for writing your
-paper. All you have to do is replace the author, title, abstract, and text of
-the paper with your own.
-
-The formatting instructions contained in these style files are summarized in
-Sections \ref{gen_inst}, \ref{headings}, and \ref{others} below.
-
-\section{General formatting instructions}
+\section{Project proposal}
 \label{gen_inst}
 
 The text must be confined within a rectangle 5.5~inches (33~picas) wide and
