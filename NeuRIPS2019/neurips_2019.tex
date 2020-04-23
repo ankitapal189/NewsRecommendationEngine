@@ -130,6 +130,14 @@ Finally to reiterate on the problem statement, the goal is to build a recommenda
 \subsection{Proposed Data Source}
 For a hybrid recommendation system, we require data for both user and news article profiling. We decided to use the web scraping tool by the authors of the FakeNewsNet paper \cite{datasrc} that collects data for various twitter users and pulls text content from different news article urls. While the data is split as fake news and real news, our objective is not to classify the news articles as fake or real. However, we do intend to utilize the rich collection of data that is gathered by the tool. The tool also has an advantage of choosing a domain for the news articles and the features that we want to download. 
 
+The news recommendation engine has many facets and subproblems associated with it. We have divided the entire problem into sub-parts and have strived to come up with different techniques that might address these problems. 
+The following table summarizes some of the problems and our proposed solutions. 
+User-Side Cold Start Problem
+In order to be able to recommend articles to new users, we will be using hierarchical clustering to segment users into groups  
+Item-Side Cold Start Problem
+News Articles that are new and have very less metadata associated with them will be modelled using Latent Dirichlet Allocation to find out 
+
+
 \subsection{Proposed Approach}
 \includegraphics[scale=.50]{NeuRIPS2019/Slide1.PNG}
 
